@@ -6,8 +6,8 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
-		"build": "tsup",
-		"test": "echo \"Error: no test specified\""
+		"build": "tsc --noEmit && tsup",
+		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
 		"fast-glob": "^3.3.3",
