@@ -1,6 +1,6 @@
 # mkblog
 
-A simple but powerful blog generator for markdown files.
+This is a monorepo of mkblog, a simple blog generator for markdown files.
 
 # Tools
 
@@ -8,3 +8,4 @@ A simple but powerful blog generator for markdown files.
 2. Node.js
 3. Biome.js for linting
 4. Vitest for testing
+
