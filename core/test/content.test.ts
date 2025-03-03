@@ -1,7 +1,7 @@
-import { expect, test } from "vitest";
-import { defineContent, zod } from "../src";
 import * as path from "node:path";
 import remarkGfm from "remark-gfm";
+import { expect, test } from "vitest";
+import { defineContent, zod } from "../src";
 import { hashing, mix, removeExtension } from "../src/utils/slug";
 
 /**
