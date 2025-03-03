@@ -107,8 +107,6 @@ interface Collection<T> {
 }
 
 
-const markdownRegex = /\.md$/;
-
 async function defineContent<T extends ZodRawShape>(
 	options: ContentOptions<T>,
 ): Promise<Collection<T>> {
