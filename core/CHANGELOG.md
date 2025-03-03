@@ -1,5 +1,11 @@
 # @mkblog/core
 
+## 0.4.1
+
+### Patch Changes
+
+- add type check to project when building
+
 ## 0.4.0
 
 ### Minor Changes
