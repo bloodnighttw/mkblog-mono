@@ -1,29 +1,27 @@
 {
-    "name": "@mkblog/core",
-    "version": "0.4.2",
-    "type": "module",
-    "description": "The core library of mkblog",
-    "files": [
-        "./dist/**/*"
-    ],
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "scripts": {
-        "build": "tsc --noEmit && tsup",
-        "type-check": "tsc --noEmit"
-    },
-    "dependencies": {
-        "fast-glob": "^3.3.3",
-        "rehype-stringify": "^10.0.1",
-        "remark-frontmatter": "^5.0.0",
-        "remark-parse": "^11.0.0",
-        "remark-rehype": "^11.1.1",
-        "unified": "^11.0.5",
-        "unist-util-select": "^5.1.0",
-        "yaml": "^2.7.0",
-        "zod": "^3.24.2"
-    },
-    "devDependencies": {
-        "remark-gfm": "^4.0.1"
-    }
+	"name": "@mkblog/core",
+	"version": "0.4.2",
+	"type": "module",
+	"description": "The core library of mkblog",
+	"files": ["./dist/**/*"],
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc --noEmit && tsup",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"fast-glob": "^3.3.3",
+		"rehype-stringify": "^10.0.1",
+		"remark-frontmatter": "^5.0.0",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.1",
+		"unified": "^11.0.5",
+		"unist-util-select": "^5.1.0",
+		"yaml": "^2.7.0",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"remark-gfm": "^4.0.1"
+	}
 }
