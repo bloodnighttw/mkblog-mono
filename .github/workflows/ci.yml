@@ -1,0 +1,85 @@
+name: lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 9.7.0
+      - name: 'Install Node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'pnpm'
+      - name: install dependency
+        run: pnpm install --frozen-lockfile
+      - name: type checking using tsc
+        run: pnpm type-check
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 9.7.0
+      - name: 'Install Node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'pnpm'
+      - name: install dependency
+        run: pnpm install --frozen-lockfile
+      - name: biome lint
+        run: pnpm exec biome ci
+  test:
+    runs-on: ubuntu-latest
+    needs: type-check
+
+    strategy:
+      matrix:
+        node-version: [ 18.x, 19.x, 20.x, 22.x, 23.x ]
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 9.7.0
+      - name: Using Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: install dependency
+        run: pnpm install --frozen-lockfile
+      - name: run vitest
+        run: pnpm test
+  coverage:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 9.7.0
+      - name: Using Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+          cache: 'pnpm'
+      - name: install dependency
+        run: pnpm install --frozen-lockfile
+      - name: 'Test'
+        run: pnpm test:coverage
+      - name: 'Report Coverage'
+        # Set if: always() to also generate the report if tests are failing
+        # Only works if you set `reportOnFailure: true` in your vite config as specified above
+        uses: davelosert/vitest-coverage-report-action@v2
