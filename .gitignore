@@ -1,5 +1,6 @@
 **/node_modules/
 **/dist/
 .idea/
-
-core/dist/index.js
+.vscode/
+.DS_Store
+.env
