@@ -23,6 +23,9 @@ importers:
       '@types/node':
         specifier: ^22.13.8
         version: 22.13.8
+      '@vitest/coverage-v8':
+        specifier: 3.0.7
+        version: 3.0.7(vitest@3.0.7(@types/debug@4.1.12)(@types/node@22.13.8)(yaml@2.7.0))
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
@@ -66,9 +69,6 @@ importers:
         specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
-      '@vitest/coverage-v8':
-        specifier: 3.0.7
-        version: 3.0.7(vitest@3.0.7(@types/debug@4.1.12)(@types/node@22.13.8)(yaml@2.7.0))
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1

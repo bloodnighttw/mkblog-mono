@@ -10,6 +10,7 @@
         "publishAll": "pnpm publish -r"
     },
     "devDependencies": {
+        "@vitest/coverage-v8": "3.0.7",
         "@biomejs/biome": "1.9.4",
         "@changesets/cli": "^2.28.1",
         "@types/hast": "^3.0.4",
