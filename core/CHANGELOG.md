@@ -1,5 +1,11 @@
 # @mkblog/core
 
+## 1.0.0
+
+### Major Changes
+
+- 0ff20e7: # A Major Version of mkblog.
+
 ## 0.4.2
 
 ### Patch Changes
