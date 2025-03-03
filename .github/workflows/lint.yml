@@ -24,4 +24,4 @@ jobs:
     - name: type checking using tsc
       run: pnpm type-check
     - name: biome lint
-      run: biome ci
+      run: pnpm exec biome ci
