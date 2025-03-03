@@ -3,10 +3,10 @@
 	"version": "0.3.0",
 	"description": "",
 	"scripts": {
-        "type-check": "pnpm -r exec tsc --noEmit",
-        "build": "pnpm -r build",
+		"type-check": "pnpm -r exec tsc --noEmit",
+		"build": "pnpm -r build",
 		"format": "biome format --write .",
-        "publishAll": "pnpm publish -r"
+		"publishAll": "pnpm publish -r"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

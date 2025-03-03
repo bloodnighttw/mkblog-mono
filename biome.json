@@ -20,10 +20,10 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-            "style": {
-                "useImportType": "off",
-                "useExportType": "off"
-            },
+			"style": {
+				"useImportType": "off",
+				"useExportType": "off"
+			},
 			"recommended": true
 		}
 	},

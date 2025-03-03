@@ -1,3 +1,1 @@
-export default [
-    'core',
-]
+export default ["core"];
