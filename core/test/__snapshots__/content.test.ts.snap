@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`html check 1`] = `
+"<p>This is a test</p>
+<h1>This is a header</h1>
+<h2>This is a gfm test</h2>
+<table>
+<thead>
+<tr>
+<th>This is a test</th>
+<th>This is a test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This is a test</td>
+<td>This is a test</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">print("Hello World")
+</code></pre>
+<p><strong>Ricky Astley is never:</strong></p>
+<ol>
+<li>Never Gonna Give You Up</li>
+<li>Never Gonna Let You Down</li>
+<li>Never Gonna Run Around and Desert You</li>
+</ol>
+<p><code>And that's it.</code></p>
+<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is a link</a></p>"
+`;
+
+exports[`html check 2`] = `
+"<p>This is a test</p>
+<h1>This is a header</h1>
+<h2>This is a gfm test</h2>
+<p>| This is a test | This is a test |
+|----------------|----------------|
+| This is a test | This is a test |</p>
+<pre><code class="language-python">print("Hello World")
+</code></pre>
+<p><strong>Ricky Astley is never:</strong></p>
+<ol>
+<li>Never Gonna Give You Up</li>
+<li>Never Gonna Let You Down</li>
+<li>Never Gonna Run Around and Desert You</li>
+</ol>
+<p><code>And that's it.</code></p>
+<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is a link</a></p>"
+`;
