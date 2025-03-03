@@ -17,7 +17,9 @@ export default defineConfig({
         exclude,
         coverage: {
             provider: 'v8',
-            exclude
+            exclude,
+            reporter: ['json', 'json-summary'],
+            reportOnFailure: true,
         },
     }
 })
