@@ -1,17 +1,17 @@
-import path from "node:path";
-import {type PluggableList, unified} from "unified";
-import remark2rehype from "remark-rehype";
-import remarkParse from "remark-parse";
-import rehypeStringify from "rehype-stringify";
 import fs from "node:fs";
-import type {Root as HastRoot} from "hast";
-import type {Root as MDRoot, Yaml} from "mdast";
+import path from "node:path";
+import {hashing, mix, removeExtension} from "@/utils/slug";
+import fastGlob, {Pattern} from "fast-glob";
+import {Root as HastRoot} from "hast";
+import {Root as MDRoot, Yaml} from "mdast";
+import rehypeStringify from "rehype-stringify";
 import frontmatter from "remark-frontmatter";
+import remarkParse from "remark-parse";
+import remark2rehype from "remark-rehype";
+import { PluggableList, unified} from "unified";
 import {select} from "unist-util-select";
 import yaml from "yaml";
-import {z, type ZodRawShape} from "zod";
-import fastGlob, {type Pattern} from "fast-glob";
-import {hashing, mix, removeExtension} from "@/utils/slug";
+import {ZodRawShape, z } from "zod";
 
 interface ContentOptions<T extends ZodRawShape> {
     /**
@@ -175,6 +175,6 @@ async function defineContent<T extends ZodRawShape>(
 	return { posts };
 }
 
-export type { ContentOptions, Collection };
+export { ContentOptions, Collection };
 
 export { defineContent, Content, z as zod };
