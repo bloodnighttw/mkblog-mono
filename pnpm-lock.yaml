@@ -38,6 +38,9 @@ importers:
 
   core:
     dependencies:
+      fast-glob:
+        specifier: ^3.3.3
+        version: 3.3.3
       rehype-stringify:
         specifier: ^10.0.1
         version: 10.0.1

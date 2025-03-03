@@ -10,14 +10,14 @@
 		"test": "echo \"Error: no test specified\""
 	},
 	"dependencies": {
+		"fast-glob": "^3.3.3",
 		"rehype-stringify": "^10.0.1",
 		"remark-frontmatter": "^5.0.0",
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.1",
-		"unist-util-select": "^5.1.0",
 		"unified": "^11.0.5",
+		"unist-util-select": "^5.1.0",
 		"yaml": "^2.7.0",
 		"zod": "^3.24.2"
-	},
-	"devDependencies": {}
+	}
 }
