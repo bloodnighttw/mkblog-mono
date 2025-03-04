@@ -11,7 +11,7 @@ import remark2rehype from "remark-rehype";
 import { PluggableList, unified } from "unified";
 import { select } from "unist-util-select";
 import yaml from "yaml";
-import { ZodRawShape, z } from "zod";
+import { z, ZodRawShape } from "zod";
 
 interface ContentOptions<T extends ZodRawShape> {
 	/**
@@ -157,13 +157,11 @@ async function defineContent<T extends ZodRawShape>(
 ): Promise<Collection<T>> {
 	const files = await fastGlob(options.include);
 	const slugFunc =
-		options.createSlug === "removeExtension"
-			? removeExtension
-			: options.createSlug === "hashing"
-				? hashing
-				: options.createSlug === "mix"
-					? mix
-					: (options.createSlug ?? removeExtension);
+		// biome-ignore format: this is a switch-case like statement
+		options.createSlug === "removeExtension" ? removeExtension :
+        options.createSlug === "hashing" ? hashing :
+        options.createSlug === "mix" ? mix :
+        (options.createSlug ?? removeExtension);
 
 	const posts = files.map((file) => {
 		const filepath = path.join(process.cwd(), file);
