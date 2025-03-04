@@ -12,6 +12,7 @@ import { PluggableList, unified } from "unified";
 import { select } from "unist-util-select";
 import yaml from "yaml";
 import { z, ZodRawShape } from "zod";
+import { MkblogPlugin } from "@/utils/plugin";
 
 interface ContentOptions<T extends ZodRawShape> {
 	/**
@@ -36,7 +37,7 @@ interface ContentOptions<T extends ZodRawShape> {
 		| ((from: string) => string);
 	schema: T;
 
-	mkBlogPlugins?: () => void;
+	mkBlogPlugins?: MkblogPlugin | MkblogPlugin[];
 	remarkPlugins?: PluggableList;
 	rehypePlugins?: PluggableList;
 }
@@ -163,13 +164,34 @@ async function defineContent<T extends ZodRawShape>(
         options.createSlug === "mix" ? mix :
         (options.createSlug ?? removeExtension);
 
+	const mPlugins: PluggableList = options.remarkPlugins ?? [];
+	const hPlugins: PluggableList = options.rehypePlugins ?? [];
+
+	const mkBlogPlugins = Array.isArray(options.mkBlogPlugins)
+		? options.mkBlogPlugins
+		: options.mkBlogPlugins
+			? [options.mkBlogPlugins]
+			: [];
+
+	for (const { init, rehypePlugins, remarkPlugins } of mkBlogPlugins) {
+		init?.();
+
+		if (rehypePlugins) {
+			hPlugins.push(...rehypePlugins);
+		}
+
+		if (remarkPlugins) {
+			mPlugins.push(...remarkPlugins);
+		}
+	}
+
 	const posts = files.map((file) => {
 		const filepath = path.join(process.cwd(), file);
 		return new Content<T>(
 			filepath,
 			slugFunc(file),
-			options.remarkPlugins ?? [],
-			options.rehypePlugins ?? [],
+			mPlugins,
+			hPlugins,
 			z.object(options.schema),
 		);
 	});
@@ -177,6 +199,6 @@ async function defineContent<T extends ZodRawShape>(
 	return { posts };
 }
 
-export { ContentOptions, Collection };
+export { ContentOptions, Collection, MkblogPlugin };
 
 export { defineContent, Content, z as zod };
