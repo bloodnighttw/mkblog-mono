@@ -167,11 +167,11 @@ async function defineContent<T extends ZodRawShape>(
 	const mPlugins: PluggableList = options.remarkPlugins ?? [];
 	const hPlugins: PluggableList = options.rehypePlugins ?? [];
 
-	const mkBlogPlugins = Array.isArray(options.mkBlogPlugins)
-		? options.mkBlogPlugins
-		: options.mkBlogPlugins
-			? [options.mkBlogPlugins]
-			: [];
+	// biome-ignore format: this is a switch-case like statement
+	const mkBlogPlugins =
+        Array.isArray(options.mkBlogPlugins) ? options.mkBlogPlugins :
+        options.mkBlogPlugins ? [options.mkBlogPlugins]
+        : [];
 
 	for (const { init, rehypePlugins, remarkPlugins } of mkBlogPlugins) {
 		init?.();
