@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { MkblogPlugin } from "@/utils/plugin";
 import { hashing, mix, removeExtension } from "@/utils/slug";
 import fastGlob, { Pattern } from "fast-glob";
 import { Root as HastRoot } from "hast";
@@ -36,7 +37,7 @@ interface ContentOptions<T extends ZodRawShape> {
 		| ((from: string) => string);
 	schema: T;
 
-	mkBlogPlugins?: () => void;
+	mkBlogPlugins?: MkblogPlugin | MkblogPlugin[];
 	remarkPlugins?: PluggableList;
 	rehypePlugins?: PluggableList;
 }
@@ -157,21 +158,40 @@ async function defineContent<T extends ZodRawShape>(
 ): Promise<Collection<T>> {
 	const files = await fastGlob(options.include);
 	const slugFunc =
-		options.createSlug === "removeExtension"
-			? removeExtension
-			: options.createSlug === "hashing"
-				? hashing
-				: options.createSlug === "mix"
-					? mix
-					: (options.createSlug ?? removeExtension);
+		// biome-ignore format: this is a switch-case like statement
+		options.createSlug === "removeExtension" ? removeExtension :
+        options.createSlug === "hashing" ? hashing :
+        options.createSlug === "mix" ? mix :
+        (options.createSlug ?? removeExtension);
+
+	const mPlugins: PluggableList = options.remarkPlugins ?? [];
+	const hPlugins: PluggableList = options.rehypePlugins ?? [];
+
+	// biome-ignore format: this is a switch-case like statement
+	const mkBlogPlugins =
+        Array.isArray(options.mkBlogPlugins) ? options.mkBlogPlugins :
+        options.mkBlogPlugins ? [options.mkBlogPlugins]
+        : [];
+
+	for (const { init, rehypePlugins, remarkPlugins } of mkBlogPlugins) {
+		init?.();
+
+		if (rehypePlugins) {
+			hPlugins.push(...rehypePlugins);
+		}
+
+		if (remarkPlugins) {
+			mPlugins.push(...remarkPlugins);
+		}
+	}
 
 	const posts = files.map((file) => {
 		const filepath = path.join(process.cwd(), file);
 		return new Content<T>(
 			filepath,
 			slugFunc(file),
-			options.remarkPlugins ?? [],
-			options.rehypePlugins ?? [],
+			mPlugins,
+			hPlugins,
 			z.object(options.schema),
 		);
 	});
@@ -179,6 +199,6 @@ async function defineContent<T extends ZodRawShape>(
 	return { posts };
 }
 
-export { ContentOptions, Collection };
+export { ContentOptions, Collection, MkblogPlugin };
 
 export { defineContent, Content, z as zod };
