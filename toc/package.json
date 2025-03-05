@@ -1,0 +1,26 @@
+{
+	"name": "@mkblog/toc",
+	"version": "1.0.1",
+	"type": "module",
+	"description": "The core library of mkblog",
+	"files": [
+		"./dist/**/*"
+	],
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc --noEmit && tsup",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@mkblog/core": "workspace:*",
+		"hastscript": "^9.0.1",
+		"rehype-slug": "^6.0.0",
+		"unist-util-select": "^5.1.0",
+		"unist-util-visit": "^5.0.0"
+	},
+	"devDependencies": {
+		"remark-gfm": "^4.0.1",
+		"unist-util-inspect": "^8.1.0"
+	}
+}
