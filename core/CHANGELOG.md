@@ -1,5 +1,11 @@
 # @mkblog/core
 
+## 1.0.1
+
+### Patch Changes
+
+- 786fc0d: Introducing Plugin System for mkblog
+
 ## 1.0.0
 
 ### Major Changes
