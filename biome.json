@@ -23,7 +23,8 @@
 		"rules": {
 			"style": {
 				"useImportType": "off",
-				"useExportType": "off"
+				"useExportType": "off",
+                "noNonNullAssertion": "off"
 			},
 			"recommended": true
 		}
