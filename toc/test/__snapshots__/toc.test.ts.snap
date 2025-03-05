@@ -1,0 +1,173 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toc 1`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This is a header",
+                },
+              ],
+              "properties": {
+                "href": "#this-is-a-header",
+              },
+              "tagName": "a",
+              "type": "element",
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "This is a gfm test",
+                        },
+                      ],
+                      "properties": {
+                        "href": "#this-is-a-gfm-test",
+                      },
+                      "tagName": "a",
+                      "type": "element",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "This is a test",
+                                },
+                              ],
+                              "properties": {
+                                "href": "#this-is-a-test",
+                              },
+                              "tagName": "a",
+                              "type": "element",
+                            },
+                          ],
+                          "properties": {
+                            "className": [
+                              "toc-level-3",
+                            ],
+                          },
+                          "tagName": "li",
+                          "type": "element",
+                        },
+                      ],
+                      "properties": {
+                        "className": [
+                          "toc",
+                        ],
+                      },
+                      "tagName": "ul",
+                      "type": "element",
+                    },
+                  ],
+                  "properties": {
+                    "className": [
+                      "toc-level-2",
+                    ],
+                  },
+                  "tagName": "li",
+                  "type": "element",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "This is a test",
+                        },
+                      ],
+                      "properties": {
+                        "href": "#this-is-a-test-1",
+                      },
+                      "tagName": "a",
+                      "type": "element",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "This is a test",
+                                },
+                              ],
+                              "properties": {
+                                "href": "#this-is-a-test-2",
+                              },
+                              "tagName": "a",
+                              "type": "element",
+                            },
+                          ],
+                          "properties": {
+                            "className": [
+                              "toc-level-3",
+                            ],
+                          },
+                          "tagName": "li",
+                          "type": "element",
+                        },
+                      ],
+                      "properties": {
+                        "className": [
+                          "toc",
+                        ],
+                      },
+                      "tagName": "ul",
+                      "type": "element",
+                    },
+                  ],
+                  "properties": {
+                    "className": [
+                      "toc-level-2",
+                    ],
+                  },
+                  "tagName": "li",
+                  "type": "element",
+                },
+              ],
+              "properties": {
+                "className": [
+                  "toc",
+                ],
+              },
+              "tagName": "ul",
+              "type": "element",
+            },
+          ],
+          "properties": {
+            "className": [
+              "toc-level-1",
+            ],
+          },
+          "tagName": "li",
+          "type": "element",
+        },
+      ],
+      "properties": {
+        "className": [
+          "toc",
+        ],
+      },
+      "tagName": "ul",
+      "type": "element",
+    },
+  ],
+  "type": "root",
+}
+`;
