@@ -19,7 +19,7 @@ const tocPlugin: MkblogPlugin = {
 
             visit(hast, 'element', (node: Element) => {
                 if (/^h[1-6]$/.test(node.tagName)) {
-                    const id = node.properties?.id as string ?? "";
+                    const id = node.properties!.id as string;
                     const text = node.children
                         .filter(child => child.type === 'text')
                         .map(child => child.value)
