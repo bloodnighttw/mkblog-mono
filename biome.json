@@ -8,7 +8,9 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"ignore": [
+			"**/package.json"
+		]
 	},
 	"formatter": {
 		"enabled": true,
@@ -33,5 +35,5 @@
 		"formatter": {
 			"quoteStyle": "double"
 		}
-	}
+	},
 }
