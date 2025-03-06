@@ -2,7 +2,6 @@ import {expect, test} from "vitest";
 import init from "../src";
 import {defineContent,zod} from "../../core/src";
 import remarkGfm from "remark-gfm";
-import {inspect} from "unist-util-inspect";
 
 test("Table of content hast check", async ()=> {
 
