@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { MkblogPlugin } from "@/utils/plugin";
-import { hashing, mix, removeExtension } from "@/utils/slug";
+import { MkblogPlugin } from "./utils/plugin";
+import { hashing, mix, removeExtension } from "./utils/slug";
 import fastGlob, { Pattern } from "fast-glob";
 import { Root as HastRoot } from "hast";
 import { Root as MDRoot, Yaml } from "mdast";
