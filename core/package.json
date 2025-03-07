@@ -1,9 +1,11 @@
 {
 	"name": "@mkblog/core",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"type": "module",
 	"description": "The core library of mkblog",
-	"files": ["./dist/**/*"],
+	"files": [
+		"./dist/**/*"
+	],
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {

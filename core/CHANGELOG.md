@@ -1,5 +1,11 @@
 # @mkblog/core
 
+## 1.1.0
+
+### Minor Changes
+
+- b5be89d: Add new sub-package, which can generate table of content html from content.
+
 ## 1.0.1
 
 ### Patch Changes
