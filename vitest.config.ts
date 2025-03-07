@@ -13,7 +13,7 @@ const exclude = [
 
 export default defineConfig({
 	test: {
-		workspace: ["core"],
+		workspace: ["core", "toc"],
 		exclude,
 		coverage: {
 			provider: "v8",
