@@ -1,7 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { MkblogPlugin } from "./utils/plugin";
-import { hashing, mix, removeExtension } from "./utils/slug";
 import fastGlob, { Pattern } from "fast-glob";
 import { Root as HastRoot } from "hast";
 import { Root as MDRoot, Yaml } from "mdast";
@@ -13,6 +11,8 @@ import { PluggableList, unified } from "unified";
 import { select } from "unist-util-select";
 import yaml from "yaml";
 import { ZodRawShape, z } from "zod";
+import { MkblogPlugin } from "./utils/plugin";
+import { hashing, mix, removeExtension } from "./utils/slug";
 
 interface ContentOptions<T extends ZodRawShape> {
 	/**

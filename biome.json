@@ -8,9 +8,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [
-			"**/package.json"
-		]
+		"ignore": ["**/package.json"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -26,7 +24,7 @@
 			"style": {
 				"useImportType": "off",
 				"useExportType": "off",
-                "noNonNullAssertion": "off"
+				"noNonNullAssertion": "off"
 			},
 			"recommended": true
 		}
